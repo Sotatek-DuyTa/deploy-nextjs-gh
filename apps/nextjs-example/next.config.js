@@ -1,15 +1,13 @@
-const isProd = process.env.NODE_ENV === "production";
-
 module.exports = {
   reactStrictMode: true,
-  // assetPrefix: isProd ? "/aptos-wallet-adapter" : "",
-  basePath: '/github-pages',
-  images: { unoptimized: true },
+  assetPrefix: "/aptos-wallet-adapter",
+  basePath: "/deploy-nextjs-gh",
+  images: {unoptimized: true},
   experimental: {
     transpilePackages: ["wallet-adapter-react", "wallet-adapter-plugin"],
   },
   webpack: (config) => {
-    config.resolve.fallback = { "@solana/web3.js": false };
+    config.resolve.fallback = {"@solana/web3.js": false};
     return config;
   },
 };
